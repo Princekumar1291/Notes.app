@@ -6,7 +6,11 @@ require('dotenv').config();
 app.use(express.json());
 // Use CORS middleware
 app.use(cors(
-    
+    {
+        original:["https://notesfrontend-ten.vercel.app"],
+        methods:["GET", "POST"],
+        credentials:true
+    }
 ));
 
 app.get('/', (req, res) => {
