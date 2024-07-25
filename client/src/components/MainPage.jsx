@@ -6,6 +6,10 @@ import {  useNavigate } from "react-router-dom";
 import axios from "axios"
 import { toast } from 'react-toastify';
 
+const NOTES_URL=import.meta.env.REACT_APP_NOTES_URL;
+console.log(NOTES_URL)
+
+
 const MainPage = () => {
     const colorArray=["bg-pink-500","bg-red-500","bg-orange-500","bg-yellow-500","bg-gray-500"]
     const [notes, setNotes] = useState([]);
@@ -16,7 +20,7 @@ const MainPage = () => {
     const fetchData = async () => {
         try {
             const token = localStorage.getItem("Token");
-            const response = await axios.post("http://localhost:4000/api/v1/notes/getusernotes", null, {
+            const response = await axios.post(`${NOTES_URL}/getusernotes` ,null, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -39,7 +43,7 @@ const MainPage = () => {
 
     const saveNotes = async(id,newText) => {
         const token = localStorage.getItem("Token");
-        await axios.post("http://localhost:4000/api/v1/notes/addnotes",newText,{
+        await axios.post(`${NOTES_URL}/addnotes`,newText,{
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -86,7 +90,7 @@ const MainPage = () => {
     const removeNotes = async(_id) => {
         const id={_id:_id};
         const token = localStorage.getItem("Token");
-        await axios.post("http://localhost:4000/api/v1/notes/remove",id,{
+        await axios.post(`${NOTES_URL}/deletenote`,id,{
             headers: {
                 'Authorization': `Bearer ${token}`
             }
