@@ -6,18 +6,14 @@ require('dotenv').config();
 app.use(express.json());
 // Use CORS middleware
 app.use(cors(
-    {
-        original:["https://notesfrontend-ten.vercel.app"],
-        methods:["GET", "POST"],
-        credentials:true
-    }
+    
 ));
 
 app.get('/', (req, res) => {
     res.send("Hello, how are you?");
 });
 
-
+console.log("Hello")
 
 // Mount the user login and signup routes
 const userRoutes = require('./src/routes/userRouter');
@@ -29,8 +25,6 @@ app.use('/api/v1/notes', notesRoutes);
 
 
 
-
-clg
 
 
 const connect = require('./src/config/database');
