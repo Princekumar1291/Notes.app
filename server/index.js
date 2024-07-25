@@ -7,7 +7,7 @@ app.use(express.json());
 // Use CORS middleware
 app.use(cors(
     {
-        original:["https://notesfrontend-ten.vercel.app"],
+        original:["https://notesfrontend-3u9e.onrender.com"],
         methods:["GET", "POST"],
         credentials:true
     }
