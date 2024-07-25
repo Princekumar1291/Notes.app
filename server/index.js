@@ -6,12 +6,8 @@ require('dotenv').config();
 app.use(express.json());
 // Use CORS middleware
 app.use(cors(
-    {
-        original:["https://notesfrontend-3u9e.onrender.com"],
-        methods:["GET", "POST"],
-        credentials:true
-    }
-)); 
+    
+));
 
 app.get('/', (req, res) => {
     res.send("Hello, how are you?");

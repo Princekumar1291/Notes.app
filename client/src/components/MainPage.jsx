@@ -90,7 +90,7 @@ const MainPage = () => {
     const removeNotes = async(_id) => {
         const id={_id:_id};
         const token = localStorage.getItem("Token");
-        await axios.post(`${NOTES_URL}/deletenote`,id,{
+        await axios.post(`${NOTES_URL}/remove`,id,{
             headers: {
                 'Authorization': `Bearer ${token}`
             }
