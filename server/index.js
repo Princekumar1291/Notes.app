@@ -11,7 +11,7 @@ app.use(cors(
         methods:["GET", "POST"],
         credentials:true
     }
-));
+)); 
 
 app.get('/', (req, res) => {
     res.send("Hello, how are you?");
