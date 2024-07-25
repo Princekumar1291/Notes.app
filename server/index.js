@@ -6,7 +6,12 @@ require('dotenv').config();
 app.use(express.json());
 // Use CORS middleware
 app.use(cors(
-    
+    {
+        origin: 'https://notes-app-tuvc.vercel.app',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        credentials: true
+    }
 ));
 
 app.get('/', (req, res) => {
